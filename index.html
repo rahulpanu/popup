@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to out Website</h1>
+        <button class="join_btn" onclick="AddPop()">Click to join</button>
+    </div>
+    <div class="pop_up active">
+        <h3>Login Here</h3>
+        <form>
+            <input type="text" placeholder="Enter email ID">
+            <button class="login_btn">Login</button>
+        </form>
+        <div class="close">X</div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const popUp = document.querySelector(".pop_up");
+        const close = document.querySelector(".close")
+
+
+        function AddPop() {
+            container.classList.add("active");
+            popUp.classList.remove("active");
+        }
+
+        popUp.addEventListener("click", (event) => {
+            console.log(event.target);
+            if(event.target === close){
+                container.classList.remove("active")
+                popUp.classList.add("active")
+            }
+        })
+        
+    </script>
+</body>
+</html>
